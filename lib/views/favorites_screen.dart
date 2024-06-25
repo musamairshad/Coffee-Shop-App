@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../constants/colors.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -12,13 +13,12 @@ class FavoritesScreen extends StatelessWidget {
       backgroundColor: kBgColor,
       appBar: AppBar(
         backgroundColor: kBgColor,
-        title: const Text(
+        title: Text(
           "Favorites",
-          style: TextStyle(
-            fontFamily: "Poppins",
-            fontSize: 20,
+          style: GoogleFonts.poppins(
             color: Colors.white,
             fontWeight: FontWeight.w600,
+            fontSize: 20,
           ),
         ),
         centerTitle: true,

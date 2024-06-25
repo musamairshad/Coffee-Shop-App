@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/colors.dart';
 import '../models/product.dart';
+import '../views/product_detail_screen.dart';
 // import 'package:flutter/widgets.dart';
 
 class ProductItem extends StatelessWidget {
@@ -16,11 +18,11 @@ class ProductItem extends StatelessWidget {
       // borderRadius: BorderRadius.circular(25),
       onTap: () {
         // print("Tap!");
-        // Navigator.of(context).push(
-        //   MaterialPageRoute(
-        //     builder: (ctx) => ProductDetailsScreen(item: product),
-        //   ),
-        // );
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (ctx) => ProductDetailsScreen(item: product),
+          ),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -58,47 +60,48 @@ class ProductItem extends StatelessWidget {
                             ),
                           )),
                     ),
-                    Positioned(
-                      left: 0,
-                      right: 90,
-                      top: 0,
-                      bottom: 220,
-                      child: Container(
-                        width: 30,
-                        decoration: BoxDecoration(
-                          color: const Color(0xff000000).withOpacity(0.6),
-                          borderRadius: const BorderRadius.only(
-                              bottomRight: Radius.circular(25)),
+                    if (product.productType == ProductType.coffee)
+                      Positioned(
+                        left: 0,
+                        right: 90,
+                        top: 0,
+                        bottom: 220,
+                        child: Container(
+                          width: 30,
+                          decoration: BoxDecoration(
+                            color: const Color(0xff000000).withOpacity(0.6),
+                            borderRadius: const BorderRadius.only(
+                                bottomRight: Radius.circular(25)),
+                          ),
                         ),
                       ),
-                    ),
-                    Positioned(
-                      left: 10,
-                      right: 0,
-                      top: 0,
-                      bottom: 220,
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.star,
-                            size: 13,
-                            color: kPrimaryColor,
-                          ),
-                          const SizedBox(
-                            width: 2.5,
-                          ),
-                          Text(
-                            product.productRating.toString(),
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontFamily: "Poppins",
-                              fontSize: 12,
+                    if (product.productType == ProductType.coffee)
+                      Positioned(
+                        left: 10,
+                        right: 0,
+                        top: 0,
+                        bottom: 220,
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.star,
+                              size: 13,
+                              color: kPrimaryColor,
                             ),
-                          ),
-                        ],
+                            const SizedBox(
+                              width: 2.5,
+                            ),
+                            Text(
+                              product.productRating.toString(),
+                              style: GoogleFonts.poppins(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
 
                     // if (product.productType == ProductType.coffee)
 
@@ -112,9 +115,8 @@ class ProductItem extends StatelessWidget {
                         children: [
                           Text(
                             product.productTitle,
-                            style: const TextStyle(
+                            style: GoogleFonts.poppins(
                               color: Colors.white,
-                              fontFamily: "Poppins",
                               fontSize: 12,
                             ),
                           ),
@@ -123,9 +125,8 @@ class ProductItem extends StatelessWidget {
                           ),
                           Text(
                             product.productSubtitle,
-                            style: const TextStyle(
+                            style: GoogleFonts.poppins(
                               color: Colors.white,
-                              fontFamily: "Poppins",
                               fontSize: 10,
                             ),
                           ),
@@ -157,11 +158,11 @@ class ProductItem extends StatelessWidget {
                                 ),
                                 TextSpan(
                                   text: product.productPrice.toStringAsFixed(2),
-                                  style: const TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: "Poppins",
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600),
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ],
                             ),

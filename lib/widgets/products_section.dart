@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../data/products_data.dart';
 import 'product_item.dart';
@@ -25,13 +26,12 @@ class ProductsSection extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          const Padding(
-            padding: EdgeInsets.all(12.0),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
             child: Text(
               "Coffee beans",
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 color: Colors.white,
-                fontFamily: "Poppins",
                 fontSize: 18,
               ),
             ),
